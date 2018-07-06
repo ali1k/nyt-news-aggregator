@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="ui grid container">
     <div class="row">
-      <sui-header size="huge">NYT News Aggregator</sui-header>
+      <h1 class="ui header">NYT News Aggregator</h1>
     </div>
     <div class="row">
       <TopicSelection v-on:topicChanged="topicChanged"></TopicSelection>
