@@ -4,7 +4,7 @@
       <div class="ui massive breadcrumb">
         <h1 class="header section">NYT News Aggregator </h1>
         <i class="right chevron icon divider"></i>
-        <span class="section" v-if="topic">10 latest news items on topic "<b>{{topic}}</b>"</span>
+        <div class="section" v-if="topic"> 10 latest news items about <span class="ui big grey label">{{topic}}</span></div>
       </div>
     </div>
     <div class="row">

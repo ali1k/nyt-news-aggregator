@@ -7,12 +7,7 @@
       <NewsItem v-for="article in articles" v-bind:key="article.id" :article="article"></NewsItem>
     </div>
     <div class="ui icon warning message" v-if="emptyResults">
-      <i class="ban icon"></i>
-      <div class="content">
-        <div class="header">
-          No results was found! Please try another topic, maybe you are luckier there!
-        </div>
-      </div>
+      <i class="ban icon"></i> No results was found! Please try another topic, maybe you are luckier there!
     </div>
   </div>
 </template>
