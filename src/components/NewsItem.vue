@@ -24,17 +24,13 @@ export default {
   props: ['article'],
   data () {
     return {
-      visibleSummary: false,
-      onFocus: false
+      visibleSummary: false, // used to toggle news summary
+      onFocus: false // used to focus/blue on news item on mousever/mouseout
     }
   },
   methods: {
-    showSummary: function () {
-
-    }
   },
   created: function () {
-
   }
 }
 </script>

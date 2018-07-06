@@ -1,10 +1,10 @@
-# nyt-news
+# NYT News Aggregator
 
-> NYT News Aggregator
+A simple SPA created by VUE.js to search on New York Times news
 
 ## Build Setup
 
-``` bash
+``` bashss
 # install dependencies
 npm install
 

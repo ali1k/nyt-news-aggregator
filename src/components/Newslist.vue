@@ -6,12 +6,15 @@
       </div>
       <NewsItem v-for="article in articles" v-bind:key="article.id" :article="article"></NewsItem>
     </div>
+
     <div class="ui icon warning message" v-if="emptyResults">
-      <i class="ban icon"></i> No results was found! Please try another topic, maybe you are luckier there!
+      <i class="ban icon"></i>
+      No results was found! Please try another topic, maybe you are luckier there!
     </div>
   </div>
 </template>
 <script>
+// to handle each individual news item
 import NewsItem from './NewsItem'
 
 export default {
@@ -22,26 +25,34 @@ export default {
   props: ['topic'],
   data () {
     return {
+      // list of news items
       articles: [],
+      // to indicate the case where no results we found
       emptyResults: false,
+      // to show a loader indicator while the request is handled by NYT API
       inPrgress: false
     }
   },
   methods: {
+    // adapts the API query based on the topic searched by user
     updateTopic: function (topic) {
       this.inPrgress = true
       // todo: store API key in a config file
-      this.$http.get('https://api.nytimes.com/svc/search/v2/articlesearch.json?q=' + encodeURIComponent(topic) + '&sort=newest&api-key=ba59dbb698fb4dd39c3574b67942513c')
+      const apiKey = 'ba59dbb698fb4dd39c3574b67942513c'
+      this.$http.get('https://api.nytimes.com/svc/search/v2/articlesearch.json?q=' + encodeURIComponent(topic) + '&sort=newest&api-key=' + apiKey)
         .then(response => {
+          // checks the resutls of NYT APIs
           if (!response.body.response.docs.length) {
             this.emptyResults = true
           } else {
             this.emptyResults = false
           }
+          // parses the output of NYT API to only extract the properties of interest
           this.prepareArticles(response.body.response.docs)
           this.inPrgress = false
         })
     },
+    // parse the JSON result returned by the NYT API
     prepareArticles: function (docs) {
       /* desired structure of an article to be rendered by UI
       {
@@ -61,16 +72,17 @@ export default {
           title: doc.headline.main,
           summary: doc.snippet,
           thumbnail: this.getArticleThumbnail(doc.multimedia),
-          date: doc.pub_date.split('T')[0]
+          date: doc.pub_date.split('T')[0] // only get the date and not the time
         })
       })
       this.articles = articles
     },
+    // retrieves the best image size for showing as thumbnail
     getArticleThumbnail: function (multimedia) {
       let thumbnail = ''
       multimedia.forEach((obj) => {
         if (obj.subtype === 'mediumThreeByTwo378') {
-          // todo: add domain name
+          // adds base domain name to the relative path returned by API for images
           thumbnail = 'https://static01.nyt.com/' + obj.url
         }
       })

@@ -11,19 +11,22 @@ export default {
   name: 'topicSelection',
   data () {
     return {
-      topic: '',
-      timer: null,
-      inPrgress: false
+      topic: '', // search keyword entered by user
+      timer: null, // to handle delay in user input
+      inPrgress: false // to indicate that user request is processed on real-time
     }
   },
   methods: {
     topicChanged: function (e) {
       let self = this
       self.inPrgress = true
-      if (e.target.value.trim()) {
+      // remove the spaces before/after the search keyword
+      let userInput = e.target.value.trim()
+      if (userInput) {
         clearTimeout(self.timer)
+        // wait until user stops typing and then send the topic for processing
         self.timer = setTimeout(function () {
-          self.$emit('topicChanged', e.target.value.trim())
+          self.$emit('topicChanged', userInput)
           self.inPrgress = false
         }, 1000)
       }
