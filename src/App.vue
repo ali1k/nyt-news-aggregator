@@ -13,6 +13,9 @@
     <div class="row">
       <Newslist v-bind:topic="topic"></Newslist>
     </div>
+    <div class="ui grey vertical footer segment form-page">
+      The source code is available on <a href="https://github.com/ali1k/nyt-news-aggregator" target="_blank">Github</a>.
+    </div>
   </div>
 </template>
 
@@ -46,4 +49,10 @@ export default {
   padding-top: 10px;
   margin-top: 10px;
 }
+.ui.footer.form-page {
+    bottom: 0;
+    width: 100%;
+    padding-top: 20px;
+    text-align: center;
+  }
 </style>
