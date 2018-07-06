@@ -2,7 +2,7 @@
   <div id="app" class="ui grid container">
     <div class="row">
       <div class="ui massive breadcrumb">
-        <h1 class="header section"> NYT News Aggregator </h1>
+        <h1 class="header section brand"> NYT News Aggregator </h1>
         <i class="right chevron icon divider"></i>
         <div class="section" v-if="topic"> 10 latest news items about <span class="ui big grey label">{{topic}}</span></div>
       </div>

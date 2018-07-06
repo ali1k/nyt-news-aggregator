@@ -21,12 +21,11 @@ export default {
       let self = this
       self.inPrgress = true
       // remove the spaces before/after the search keyword
-      let userInput = e.target.value.trim()
-      if (userInput) {
+      if (e.target.value.trim()) {
         clearTimeout(self.timer)
         // wait until user stops typing and then send the topic for processing
         self.timer = setTimeout(function () {
-          self.$emit('topicChanged', userInput)
+          self.$emit('topicChanged', e.target.value.trim())
           self.inPrgress = false
         }, 1000)
       }
