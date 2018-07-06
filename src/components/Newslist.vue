@@ -10,6 +10,9 @@
           <div class="header">
             <a v-bind:href="article.url" target="_blank">{{article.title}}</a>
           </div>
+          <div class="meta">
+            <span class="date">{{article.date}}</span>
+          </div>
           <div class="description" v-html="article.summary"></div>
         </div>
       </div>
@@ -42,11 +45,19 @@ export default {
         title: '',
         summary: '',
         thumbnail: ''
+        date: ''
       }
       */
       let articles = []
       docs.forEach((doc) => {
-        articles.push({id: doc._id, url: doc.web_url, title: doc.headline.main, summary: doc.snippet, thumbnail: this.getArticleThumbnail(doc.multimedia)})
+        articles.push({
+          id: doc._id,
+          url: doc.web_url,
+          title: doc.headline.main,
+          summary: doc.snippet,
+          thumbnail: this.getArticleThumbnail(doc.multimedia),
+          date: doc.pub_date.split('T')[0]
+        })
       })
       this.articles = articles
     },
