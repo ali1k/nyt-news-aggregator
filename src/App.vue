@@ -1,15 +1,15 @@
 <template>
-  <sui-grid id="app" container>
-    <sui-grid-row>
+  <div id="app" class="ui grid container">
+    <div class="row">
       <sui-header size="huge">NYT News Aggregator</sui-header>
-    </sui-grid-row>
-    <sui-grid-row>
+    </div>
+    <div class="row">
       <TopicSelection v-on:topicChanged="topicChanged"></TopicSelection>
-    </sui-grid-row>
-    <sui-grid-row>
+    </div>
+    <div class="row">
       <Newslist v-bind:topic="topic"></Newslist>
-    </sui-grid-row>
-  </sui-grid>
+    </div>
+  </div>
 </template>
 
 <script>

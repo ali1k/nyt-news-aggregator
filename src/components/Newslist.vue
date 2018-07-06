@@ -1,19 +1,21 @@
 <template>
   <div class="newsList">
-    <sui-card-group>
-      <sui-card v-for="article in articles" v-bind:key="article.id">
-        <sui-image class="media" v-if="article.thumbnail" v-bind:src="article.thumbnail" />
-        <sui-image v-else src="../assets/placeholder.jpg" />
-        <sui-card-content>
-          <sui-card-header>
+    <div class="ui special cards">
+      <div class="card" v-for="article in articles" v-bind:key="article.id">
+        <div class="image">
+          <img class="media" v-if="article.thumbnail" v-bind:src="article.thumbnail" />
+          <img class="media" v-else src="../assets/placeholder.jpg" />
+        </div>
+        <div class="content">
+          <div class="header">
             <a v-bind:href="article.url" target="_blank">{{article.title}}</a>
-          </sui-card-header>
-          <sui-card-description>
+          </div>
+          <div class="description">
             {{article.summary}}
-          </sui-card-description>
-        </sui-card-content>
-      </sui-card>
-    </sui-card-group>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script>

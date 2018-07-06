@@ -4,10 +4,8 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import VueResource from 'vue-resource'
-import SuiVue from 'semantic-ui-vue'
 
 Vue.use(VueResource)
-Vue.use(SuiVue)
 
 Vue.config.productionTip = false
 

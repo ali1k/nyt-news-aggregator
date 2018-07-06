@@ -1,6 +1,11 @@
 <template>
   <div class="topicSelection">
-    <sui-input class="fluid" placeholder="Search for news on a specific topic..." icon="search" />
+    <div class="ui fluid search">
+      <div class="ui icon input">
+        <input class="prompt" type="text" placeholder="Search for news on a specific topic...">
+        <i class="search icon"></i>
+      </div>
+    </div>
     <div>
       <div class="">
         <select class="form-control" v-on:change="topicChanged">
