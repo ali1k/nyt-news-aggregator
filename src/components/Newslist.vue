@@ -28,7 +28,7 @@ export default {
   methods: {
     updateTopic: function (topic) {
       // todo: store API key in a config file
-      this.$http.get('https://api.nytimes.com/svc/search/v2/articlesearch.json?q=' + encodeURIComponent(topic) + '&api-key=ba59dbb698fb4dd39c3574b67942513c')
+      this.$http.get('https://api.nytimes.com/svc/search/v2/articlesearch.json?q=' + encodeURIComponent(topic) + '&sort=newest&api-key=ba59dbb698fb4dd39c3574b67942513c')
         .then(response => {
           // todo: handle the empty result set
           this.prepareArticles(response.body.response.docs)

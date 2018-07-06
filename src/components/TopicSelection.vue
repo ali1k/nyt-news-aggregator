@@ -13,7 +13,6 @@ export default {
   name: 'topicSelection',
   data () {
     return {
-      topics: [],
       topic: '',
       timer: null
     }
@@ -30,7 +29,7 @@ export default {
     }
   },
   created: function () {
-    this.topics = 'New York'
+    this.topic = ''
   }
 }
 </script>
