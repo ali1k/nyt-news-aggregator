@@ -1,7 +1,11 @@
 <template>
   <div id="app" class="ui grid container">
     <div class="row">
-      <h1 class="ui header">NYT News Aggregator</h1>
+      <div class="ui massive breadcrumb">
+        <h1 class="header section">NYT News Aggregator </h1>
+        <i class="right chevron icon divider"></i>
+        <span class="section" v-if="topic">10 latest news items on topic "<b>{{topic}}</b>"</span>
+      </div>
     </div>
     <div class="row">
       <TopicSelection v-on:topicChanged="topicChanged"></TopicSelection>

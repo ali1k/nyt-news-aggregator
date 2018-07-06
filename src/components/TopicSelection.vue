@@ -1,10 +1,8 @@
 <template>
-  <div class="topicSelection">
-    <div class="ui fluid search">
-      <div class="ui icon input">
-        <input class="prompt" type="text" v-model="topic" @keydown="topicChanged" placeholder="Search for news on a specific topic...">
-        <i class="search icon"></i>
-      </div>
+  <div class="topicSelection ui fluid search">
+    <div class="ui icon huge input news-search-box">
+      <input class="prompt" type="text" v-model="topic" @keydown="topicChanged" placeholder="Search for news on a specific topic...">
+      <i class="search icon"></i>
     </div>
   </div>
 </template>
@@ -34,4 +32,7 @@ export default {
 }
 </script>
 <style scoped>
+.news-search-box {
+  width: 500px;
+}
 </style>
