@@ -1,7 +1,18 @@
 <template>
   <div class="newsList">
     <div class="ui special cards">
+      <div class="ui active inverted dimmer" v-if="inPrgress">
+        <div class="ui large active centered inline text loader">Loading</div>
+      </div>
       <NewsItem v-for="article in articles" v-bind:key="article.id" :article="article"></NewsItem>
+    </div>
+    <div class="ui icon warning message" v-if="emptyResults">
+      <i class="ban icon"></i>
+      <div class="content">
+        <div class="header">
+          No results was found! Please try another topic, maybe you are luckier there!
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -16,16 +27,24 @@ export default {
   props: ['topic'],
   data () {
     return {
-      articles: []
+      articles: [],
+      emptyResults: false,
+      inPrgress: false
     }
   },
   methods: {
     updateTopic: function (topic) {
+      this.inPrgress = true
       // todo: store API key in a config file
       this.$http.get('https://api.nytimes.com/svc/search/v2/articlesearch.json?q=' + encodeURIComponent(topic) + '&sort=newest&api-key=ba59dbb698fb4dd39c3574b67942513c')
         .then(response => {
-          // todo: handle the empty result set
+          if (!response.body.response.docs.length) {
+            this.emptyResults = true
+          } else {
+            this.emptyResults = false
+          }
           this.prepareArticles(response.body.response.docs)
+          this.inPrgress = false
         })
     },
     prepareArticles: function (docs) {
