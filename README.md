@@ -1,10 +1,22 @@
 # NYT News Aggregator
 
-A simple SPA created by VUE.js to search on New York Times news
+A simple single page applications created by VUE.js to search on New York Times news
+
+## Architecture
+
+- [vue.js](https://vuejs.org) framework for client-side UI components
+
+- [vue-resource ](https://github.com/pagekit/vue-resource) vue.js plugin for HTTP client
+
+- [semantic-ui](https://semantic-ui.com) css framework for layout and styling
+
+- [animate.css](https://daneden.github.io/animate.css/) for css animations
+
+- [NYT Web APi](https://developer.nytimes.com) as backend for retrieving news
 
 ## Build Setup
 
-``` bashss
+```bashss
 # install dependencies
 npm install
 
