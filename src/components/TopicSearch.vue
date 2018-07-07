@@ -1,5 +1,5 @@
 <template>
-  <div class="topicSelection ui fluid search" v-bind:class="{loading: inPrgress}">
+  <div class="topicSearch ui fluid search" v-bind:class="{loading: inPrgress}">
     <div class="ui icon huge input news-search-box">
       <input autofocus class="prompt" type="text" v-model="topic" @keydown="topicChanged" placeholder="Search for a topic...">
       <i class="search icon"></i>
@@ -8,7 +8,7 @@
 </template>
 <script>
 export default {
-  name: 'topicSelection',
+  name: 'topicSearch',
   data () {
     return {
       topic: '', // search keyword entered by user

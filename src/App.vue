@@ -4,14 +4,14 @@
       <div class="ui massive breadcrumb">
         <h1 class="header section brand"> NYT News Aggregator </h1>
         <i class="right chevron icon divider"></i>
-        <div class="section" v-if="topic"> 10 latest news items about <span class="ui big grey label">{{topic}}</span></div>
+        <div class="section" v-if="topic"> 10 latest news items about <span class="ui big label">{{topic}}</span></div>
       </div>
     </div>
     <div class="row">
-      <TopicSelection v-on:topicChanged="topicChanged"></TopicSelection>
+      <TopicSearch v-on:topicChanged="topicChanged"></TopicSearch>
     </div>
     <div class="row">
-      <Newslist v-bind:topic="topic"></Newslist>
+      <NewsList v-bind:topic="topic"></NewsList>
     </div>
     <div class="ui grey vertical footer segment form-page">
       The source code is available on <a href="https://github.com/ali1k/nyt-news-aggregator" target="_blank">Github</a>.
@@ -21,15 +21,15 @@
 
 <script>
 // to display list of news items
-import Newslist from './components/Newslist'
+import NewsList from './components/NewsList'
 // to enable real-time search on news items
-import TopicSelection from './components/TopicSelection'
+import TopicSearch from './components/TopicSearch'
 
 export default {
   name: 'App',
   components: {
-    Newslist,
-    TopicSelection
+    NewsList,
+    TopicSearch
   },
   data () {
     return {
