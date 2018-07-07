@@ -14,6 +14,12 @@ module.exports = {
       .assert.elementPresent('.brand')
       .assert.containsText('h1', 'NYT News Aggregator')
       .assert.elementCount('.row', 3)
+      .pause(1000)
+      .setValue('input[type=text]', '"A Reborn Uber Faces Its First Big Reckoning"')
+      .waitForElementPresent('.image', 3000)
+      .pause(4000)
+      .assert.elementCount('.card', 1)
+      .assert.containsText('.date', '2018-06-25')
       .end()
   }
 }
