@@ -1,7 +1,7 @@
 <template>
   <div class="topicSelection ui fluid search" v-bind:class="{loading: inPrgress}">
     <div class="ui icon huge input news-search-box">
-      <input class="prompt" type="text" v-model="topic" @keydown="topicChanged" placeholder="Search for a topic...">
+      <input autofocus class="prompt" type="text" v-model="topic" @keydown="topicChanged" placeholder="Search for a topic...">
       <i class="search icon"></i>
     </div>
   </div>
